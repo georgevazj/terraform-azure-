@@ -32,7 +32,8 @@ variable "akv_name" {
 
 variable "akv_location" {
   type = string
-  description = "(Required) Key Vault Location"
+  description = "(Optional) Key Vault Location. Default: westeurope"
+  default = "westeurope"
 }
 
 variable "enabled_disk_encryption" {

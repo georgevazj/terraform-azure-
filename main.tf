@@ -25,7 +25,7 @@ provider "azurerm" {
 # Configure the Azure Key Vault
 resource "azurerm_key_vault" "akv" {
   name = var.akv_name
-  location = var.location
+  location = var.akv_location
   tenant_id = var.tenant_id
   enabled_for_disk_encryption = var.enabled_disk_encryption
   soft_delete_retention_days = var.soft_delete_retention_days

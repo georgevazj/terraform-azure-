@@ -52,8 +52,4 @@ resource "azurerm_key_vault" "akv" {
     ]
   }
 
-  depends_on = [
-    data.azurerm_resource_group.rsg
-  ]
-
 }

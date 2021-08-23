@@ -8,6 +8,11 @@ variable "akv_name" {
   description = "(Required) Key Vault name"
 }
 
+variable "location" {
+  type = string
+  description = "(Required) Key Vault location"
+}
+
 variable "enabled_disk_encryption" {
   type = bool
   description = "Enable disk encryption"

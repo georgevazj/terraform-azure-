@@ -1,4 +1,4 @@
-credentials.json
+**/.idea
 ### Terraform template
 # Local .terraform directories
 **/.terraform/*

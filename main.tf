@@ -16,21 +16,21 @@ provider "azurerm" {
       purge_soft_delete_on_destroy = true
     }
   }
-  subscription_id = var.subscription_id
-  tenant_id = var.tenant_id
-  client_id = var.client_id
-  client_secret = var.client_secret
+}
+
+data "azurerm_resource_group" "rsg" {
+  name = var.resource_group_name
 }
 
 # Configure the Azure Key Vault
 resource "azurerm_key_vault" "akv" {
   name = var.akv_name
-  location = var.akv_location
+  resource_group_name = data.azurerm_resource_group.rsg.name
+  location = data.azurerm_resource_group.rsg.location
   tenant_id = var.tenant_id
   enabled_for_disk_encryption = var.enabled_disk_encryption
   soft_delete_retention_days = var.soft_delete_retention_days
   purge_protection_enabled = var.purge_protection_enabled
-  resource_group_name = var.resource_group_name
 
   sku_name = var.sku_name
 
@@ -39,16 +39,20 @@ resource "azurerm_key_vault" "akv" {
     object_id = data.azurerm_client_config.current.object_id
 
     key_permissions = [
-      "get","list"
+      "get","list","set"
     ]
 
     secret_permissions = [
-      "get","list"
+      "get","list","set"
     ]
 
     storage_permissions = [
-      "get","list"
+      "get","list","set"
     ]
   }
+
+  depends_on = [
+    data.azurerm_resource_group.rsg
+  ]
 
 }

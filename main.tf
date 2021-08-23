@@ -7,8 +7,6 @@ terraform {
   }
 }
 
-data "azurerm_client_config" "current" {}
-
 # Configure the Microsoft Azure Provider
 provider "azurerm" {
   features {

@@ -1,9 +1,3 @@
-# Azure resource group
-variable "resource_group_name" {
-  type = string
-  description = "(Required) Resource group name"
-}
-
 variable "akv_name" {
   type = string
   description = "(Required) Key Vault name"

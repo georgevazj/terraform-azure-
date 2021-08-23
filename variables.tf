@@ -1,3 +1,8 @@
+variable "resource_group_name" {
+  type = string
+  description = "(Required) Target resource group name"
+}
+
 variable "akv_name" {
   type = string
   description = "(Required) Key Vault name"
